@@ -90,7 +90,15 @@ export const useENSPagination = (): UseENSPagination => {
 
       fetchMore({
         variables: { skip: 0 },
-        updateQuery: (_, { fetchMoreResult }) => {
+        updateQuery: (prevMoreResult, { fetchMoreResult }) => {
+          if (
+            prevMoreResult.registrations[0].domain.name ===
+            fetchMoreResult.registrations[0].domain.name
+          ) {
+            setPollingFirstPage(false);
+            return prevMoreResult;
+          }
+
           addToResolvedDomains(fetchMoreResult.registrations, true);
 
           return {

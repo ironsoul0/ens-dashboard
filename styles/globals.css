@@ -1,26 +1,39 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@keyframes octocat-wave {
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  0%,
+  100% {
+    transform: rotate(0);
   }
-  body {
-    color: white;
-    background: black;
+
+  20%,
+  60% {
+    transform: rotate(-25deg);
   }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+.fork-me {
+  z-index: 2;
+}
+
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+
+.fork-me:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
 }

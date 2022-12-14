@@ -3,6 +3,8 @@ export const ForkMe: React.FC = () => (
     href="https://github.com/ironsoul0/ens-dashboard"
     className="fork-me"
     aria-label="View source on GitHub"
+    target="_blank"
+    rel="noreferrer"
   >
     <svg
       width={80}
